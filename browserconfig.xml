@@ -2,7 +2,7 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="https://cabecalivre.com/mstile-150x150.png?v=2"/>
+            <square150x150logo src="https://cabecalivre.com/mstile-150x150.png?v=3"/>
             <TileColor>#757575</TileColor>
         </tile>
     </msapplication>

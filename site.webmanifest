@@ -3,8 +3,13 @@
     "short_name": "Cabeça Livre",
     "icons": [
         {
-            "src": "https://cabecalivre.com/android-chrome-192x192.png?v=2",
+            "src": "https://cabecalivre.com/android-chrome-192x192.png?v=3",
             "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://cabecalivre.com/android-chrome-256x256.png?v=3",
+            "sizes": "256x256",
             "type": "image/png"
         }
     ],
