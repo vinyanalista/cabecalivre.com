@@ -472,7 +472,31 @@
 
 <p>Informe o saldo da sua carteira, faça a transação e livre-se desses bitcoins:</p>
 
-<script>if(!window.btcpay){    var head = document.getElementsByTagName('head')[0];   var script = document.createElement('script');   script.src='https://pay.bitcoinheiros.com/modal/btcpay.js';   script.type = 'text/javascript';   head.append(script);}function onBTCPayFormSubmit(event){    var xhttp = new XMLHttpRequest();    xhttp.onreadystatechange = function() {        if (this.readyState == 4 && this.status == 200) {            if(this.status == 200 && this.responseText){                var response = JSON.parse(this.responseText);                window.btcpay.showInvoice(response.invoiceId);            }        }    };    xhttp.open("POST", event.target.getAttribute('action'), true);    xhttp.send(new FormData( event.target ));}</script>
+<script>
+    if (!window.btcpay) {
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.src = 'https://pay.bitcoinheiros.com/modal/btcpay.js';
+        script.type = 'text/javascript';
+        head.append(script);
+    }
+
+    function onBTCPayFormSubmit(event) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if (this.status == 200 && this.responseText) {
+                    var response = JSON.parse(this.responseText);
+                    window.btcpay.showInvoice(response.invoiceId);
+                }
+            }
+        };
+        xhttp.open("POST", event.target.getAttribute('action'), true);
+        xhttp.send(new FormData(event.target));
+        $('#btcpay-input-price').prop('disabled', true);
+        $('#enviar-btcpay').html('Aguarde, gerando invoice...').prop('disabled', true).removeClass('btn-outline-primary').addClass('btn-secondary');
+    }
+</script>
 
 <form class="border p-4" method="post" onsubmit="onBTCPayFormSubmit(event);return false" action="https://pay.bitcoinheiros.com/api/v1/invoices">
   <input type="hidden" name="storeId" value="FefnWET566rB1hth27DCmZQKAjbV3g8UG5iDcAVFysxZ" />
@@ -483,7 +507,7 @@
     <label for="btcpay-input-price">Saldo da minha carteira:</label>
     <div class="row">
       <div class="input-group col-md-6">
-        <input id="btcpay-input-price" name="price" type="number" class="form-control" aria-describedby="saldoAjuda" value="0.0001" min="0.0001" max="1000" step="0.0001" />
+        <input id="btcpay-input-price" name="price" type="number" class="form-control" aria-describedby="saldoAjuda" value="0.0001" min="0.0001" max="1000" step="0.00000001" />
         <div class="input-group-append">
           <span class="input-group-text">BTC</span>
         </div>
@@ -491,7 +515,7 @@
     </div><!-- .row -->
     <small id="saldoAjuda" class="form-text text-muted">Digite o saldo, como aparece na sua carteira.<br />Exemplo: 0,0001 BTC.</small>
   </div><!-- .form-group -->
-  <button type="submit" class="btn btn-outline-primary btn-block">Quero me livrar desses bitcoins!</button>
+  <button id="enviar-btcpay" type="submit" class="btn btn-outline-primary btn-block">Quero me livrar desses bitcoins!</button>
 </form>
 
 
