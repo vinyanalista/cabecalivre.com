@@ -403,3 +403,22 @@ https://pro.propeller.in/components/floating-button.php
 .custom_button_gab_follow:hover, .custom_button_parler_follow:hover {
     text-decoration: none;
 }
+
+/* Linktree */
+
+#linktree-body {
+    background-color: #424242;
+}
+
+#linktree-logo {
+    max-width: 96px
+}
+
+#linktree-brand {
+    color: #fff;
+    font-weight: 400;
+}
+
+#linktree-latest-post {
+    color: #fff;
+}
