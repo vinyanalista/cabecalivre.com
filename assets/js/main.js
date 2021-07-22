@@ -10,4 +10,6 @@ $(document).ready(function(){
         $('#fab button i').text(enterDesignMode ? "edit" : "visibility");
         document.designMode = enterDesignMode ? "on" : "off";
     });
+
+    //setUpGabAndParlerIconsForFontAwesome();
 });
