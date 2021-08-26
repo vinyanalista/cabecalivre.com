@@ -398,9 +398,9 @@ https://pro.propeller.in/components/floating-button.php
     text-decoration: underline;
 }
 
-/* Parler */
+/* Gab, GETTR and Parler */
 
-.custom_button_gab_follow:hover, .custom_button_parler_follow:hover {
+.custom_button_gab_follow:hover, .custom_button_gettr_follow:hover, .custom_button_parler_follow:hover {
     text-decoration: none;
 }
 
